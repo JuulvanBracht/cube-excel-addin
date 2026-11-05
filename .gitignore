@@ -1,2 +1,6 @@
-*.bak
+# macOS
 .DS_Store
+
+# Excel temp files
+~$*.xlam
+~$*.xls*
