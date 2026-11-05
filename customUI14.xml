@@ -1,0 +1,85 @@
+
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
+  <ribbon>
+    <tabs>
+      <tab id="tabCube" label="Cube" insertAfterMso="TabData">
+
+        <!-- VERVERSEN -->
+        <group id="grpRefresh" label="Verversen">
+          <menu id="mnuRefresh"
+                label="Verversen"
+                size="large"
+                imageMso="RefreshAll"
+                screentip="Berekeningen verversen"
+                supertip="Voer berekeningen opnieuw uit en actualiseer gegevens in de selectie, het actieve werkblad of de volledige werkmap.">
+
+            <button id="btnRefreshSelectie"
+                    label="Selectie"
+                    imageMso="CalculateNow"
+                    screentip="Selectie verversen"
+                    supertip="Herberekent alle formules in de geselecteerde cellen."
+                    onAction="Cube_Refresh"/>
+
+            <button id="btnRefreshTabblad"
+                    label="Huidig werkblad"
+                    imageMso="CalculateSheet"
+                    screentip="Werkblad verversen"
+                    supertip="Herberekent alle formules op het actieve werkblad."
+                    onAction="Cube_Refresh"/>
+
+            <button id="btnRefreshWerkbestand"
+                    label="Volledige werkmap"
+                    imageMso="RefreshAll"
+                    screentip="Werkmap verversen"
+                    supertip="Actualiseert alle gegevensverbindingen en herberekent de volledige werkmap."
+                    onAction="Cube_Refresh"/>
+          </menu>
+        </group>
+
+        <!-- VASTZETTEN -->
+        <group id="grpWaarden" label="Vastzetten">
+          <menu id="mnuWaarden"
+                label="Vastzetten"
+                size="large"
+                imageMso="Pushpin"
+                screentip="Formules vastzetten"
+                supertip="Converteer formules naar hun actuele resultaten als vaste waarden.">
+
+            <button id="btnWaardeSelectie"
+                    label="Selectie"
+                    imageMso="Pushpin"
+                    screentip="Selectie vastzetten"
+                    supertip="Converteert alle formules in de geselecteerde cellen naar vaste waarden."
+                    onAction="Cube_NaarWaarden"/>
+
+            <button id="btnWaardeTabblad"
+                    label="Huidig werkblad"
+                    imageMso="Pushpin"
+                    screentip="Werkblad vastzetten"
+                    supertip="Converteert alle formules op het actieve werkblad naar vaste waarden."
+                    onAction="Cube_NaarWaarden"/>
+
+            <button id="btnWaardeWerkbestand"
+                    label="Volledige werkmap"
+                    imageMso="Pushpin"
+                    screentip="Werkmap vastzetten"
+                    supertip="Converteert alle formules in de volledige werkmap naar vaste waarden."
+                    onAction="Cube_NaarWaarden"/>
+          </menu>
+        </group>
+
+        <!-- INITIALISEREN -->
+        <group id="grpInitialize" label="Initialiseren">
+          <button id="btnCubeInitialize"
+                  label="Cube"
+                  size="large"
+                  imageMso="ControlWizards"
+                  screentip="Cube initialiseren"
+                  supertip="Initialiseert Cube verbinding en functies."
+                  onAction="Cube_Initialize"/>
+        </group>
+
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
