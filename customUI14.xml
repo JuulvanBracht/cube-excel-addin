@@ -1,11 +1,11 @@
-
 <customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
   <ribbon>
     <tabs>
       <tab id="tabCube" label="Cube" insertAfterMso="TabData">
 
-        <!-- VERVERSEN -->
-        <group id="grpRefresh" label="Verversen">
+        <!-- DATA BEHEREN (Verversen & Vastzetten gecombineerd) -->
+        <group id="grpDataBeheren" label="Data beheren">
+          <!-- VERVERSEN MENU -->
           <menu id="mnuRefresh"
                 label="Verversen"
                 size="large"
@@ -34,10 +34,8 @@
                     supertip="Actualiseert alle gegevensverbindingen en herberekent de volledige werkmap."
                     onAction="Cube_Refresh"/>
           </menu>
-        </group>
 
-        <!-- VASTZETTEN -->
-        <group id="grpWaarden" label="Vastzetten">
+          <!-- VASTZETTEN MENU -->
           <menu id="mnuWaarden"
                 label="Vastzetten"
                 size="large"
@@ -68,13 +66,13 @@
           </menu>
         </group>
 
-        <!-- INITIALISEREN -->
-        <group id="grpInitialize" label="Initialiseren">
+        <!-- INSTALLEREN -->
+        <group id="grpInstallatie" label="Installatie">
           <button id="btnCubeInitialize"
-                  label="Cube"
+                  label="Installeren"
                   size="large"
                   imageMso="ControlWizards"
-                  screentip="Cube initialiseren"
+                  screentip="Cube installeren"
                   supertip="Initialiseert Cube verbinding en functies."
                   onAction="Cube_Initialize"/>
         </group>
