@@ -67,7 +67,7 @@
         </group>
 
         <!-- INSTALLEREN -->
-        <group id="grpInstallatie" label="Installatie">
+        <group id="grpInstallatie">
           <button id="btnCubeInitialize"
                   label="Installeren"
                   size="large"
