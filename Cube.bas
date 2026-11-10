@@ -42,6 +42,8 @@ Public Sub Cube_Initialize(control As IRibbonControl)
     Dim wb As Workbook
     Dim nm As Name
     Dim naam As Name
+    Dim lambdaNaam As String
+    Dim lambdaDefinitie As String
 
     On Error GoTo Fout
 
@@ -52,10 +54,13 @@ Public Sub Cube_Initialize(control As IRibbonControl)
 
     Set wb = ActiveWorkbook
 
-    ' Zoek uitsluitend naar de werkmap-brede naam TPCUBE.
-    ' Werkbladgebonden namen met dezelfde naam blijven ongewijzigd.
+    ' Hardcoded LAMBDA-waarden
+    lambdaNaam = "TPCUBE"
+    lambdaDefinitie = "LAMBDA(RAND())"
+
+    ' Zoek naar een bestaande naam met dezelfde naam (lettergrootte-onsgevoelig).
     For Each naam In wb.Names
-        If StrComp(naam.Name, "TPCUBE", vbTextCompare) = 0 Then
+        If StrComp(naam.Name, lambdaNaam, vbTextCompare) = 0 Then
             Set nm = naam
             Exit For
         End If
@@ -64,18 +69,18 @@ Public Sub Cube_Initialize(control As IRibbonControl)
     If nm Is Nothing Then
         ' Maak de werkmap-brede LAMBDA-functie aan.
         Set nm = wb.Names.Add( _
-            Name:="TPCUBE", _
-            RefersTo:="=LAMBDA(RAND())", _
+            Name:=lambdaNaam, _
+            RefersTo:="=" & lambdaDefinitie, _
             Visible:=True)
     Else
         ' Werk de bestaande werkmap-brede definitie bij.
-        nm.RefersTo = "=LAMBDA(RAND())"
+        nm.RefersTo = "=" & lambdaDefinitie
     End If
 
     MsgBox "Cube is succesvol geïnitialiseerd." & vbNewLine & vbNewLine & _
-           "Naam: TPCUBE" & vbNewLine & _
-           "Definitie: =LAMBDA(RAND())" & vbNewLine & _
-           "Gebruik: =TPCUBE()", _
+           "Naam: " & lambdaNaam & vbNewLine & _
+           "Definitie: =" & lambdaDefinitie & vbNewLine & _
+           "Gebruik: =" & lambdaNaam & "()", _
            vbInformation, TITEL
 
     Exit Sub
